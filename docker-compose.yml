@@ -1,0 +1,15 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: sheets-adsense-dev
+    restart: unless-stopped
+    ports:
+      - "3050:3000"
+    volumes:
+      - .:/app
+    environment:
+      - NODE_ENV=development
+      - NUXT_HOST=0.0.0.0
+      - NUXT_PORT=3000
